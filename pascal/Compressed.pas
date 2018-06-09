@@ -1,5 +1,17 @@
+unit compress;
+
+interface
+
 type
 	Compressed = class
-		function toBytes : PChar;
-		{ANOTHER METHOD OR VARIABLE NEEDED}
+		published
+			function toBytes(): PChar;
+			{ANOTHER METHOD OR VARIABLE NEEDED}
 	end;
+
+implementation
+function Compressed.toBytes(): PChar;
+begin
+
+end;
+end.
