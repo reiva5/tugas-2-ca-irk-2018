@@ -6,7 +6,7 @@ type
 	Compress = object
 		public
 			function toBytes(): PChar;
-			{ANOTHER METHOD OR VARIABLE NEEDED}
+			{ YOU CAN ADD ANOTHER METHOD OR VARIABLE BELOW HERE }
 	end;
 
 function doCompress(namaFile: string) : Compress;
