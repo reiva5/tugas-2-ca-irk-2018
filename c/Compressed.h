@@ -1,10 +1,12 @@
 #ifndef COMPRESSED_H
 #define COMPRESSED_H
 
-struct Compressed {
-		
-};
+typedef struct Compress {
 
-unsigned char* toBytes(Compressed*);
+} Compress;
+
+unsigned char* toBytes(Compress*);
+Compress doCompress(char* namaFile);
+void decompress(char* namaFile);
 
 #endif
