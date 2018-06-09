@@ -11,11 +11,12 @@ int main(int argc, char* argv[]){
 		tmp = doCompress(argv[1]);
 		clock_t end = clock();
 		printf("Ukuran hasil kompresi adalah: %ld byte(s)\n", sizeof(tmp));
-		printf("Eksekusi waktu hasil kompreasi adalah: %.03f\n", (double) (begin - end)/CLOCKS_PER_SEC);
+		printf("Eksekusi waktu hasil kompreasi adalah: %.03f second(s)\n", (double) (end - begin)/CLOCKS_PER_SEC);
 	} else {
 		clock_t begin = clock();
 		decompress(argv[1]);
 		clock_t end = clock();
-		printf("Eksekusi waktu hasil de-kompreasi adalah: %.03f\n", (double) (begin - end)/CLOCKS_PER_SEC);
+		printf("Eksekusi waktu hasil de-kompreasi adalah: %.03f second(s)\n", (double) (end - begin)/CLOCKS_PER_SEC);
 	}
+	return 0;
 }
