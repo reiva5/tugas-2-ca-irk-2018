@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,6 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.IOException;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
 
 public class Compressed {
 	private String asu = "Asu";
@@ -18,17 +22,11 @@ public class Compressed {
 	}
 	public Compressed doCompress(String nameFile){
 		Compressed compressed = new Compressed();
-		// File file = new File(nameFile);
-		// byte[] filedata = new byte[(int) file.length()];
-		// DataInputStream dis = new DataInputStream(new FileInputStream(file));
-		// dis readFully(filedata);
 		try{
 			byte[] bytes = Files.readAllBytes(Paths.get(nameFile));
-			Byte[] Bytes = new Byte[bytes.length];
-			for(int i=0;i<bytes.length;++i)
-				Bytes[i] = bytes[i];
 			// LZ77.compress(bytes);
-			Huffman.<Byte>compress(Bytes);
+			ArrayList<Byte> result =  Huffman.compress(bytes);
+			System.out.println(bytes.length+" become "+result.size());
 		}
 		catch(IOException e){
 			System.out.println(e);
@@ -135,43 +133,59 @@ class Pair <T, U>{
 }
 
 class Huffman{
-	public static <T extends Number> void compress(T[] data){
-		Map<T, Integer> frek = new HashMap<T, Integer>(); 
+	public static ArrayList<Byte> compress(byte[] data){
+		Map<Byte, Integer> frek = new HashMap<Byte, Integer>(); 
 		int n = data.length;
-		for(T tmp : data){
+		for(byte tmp : data){
 			Integer counter = frek.get(tmp);
 			if(counter == null)
 				frek.put(tmp, 1);
 			else
 				frek.put(tmp, counter+1);
 		}
-		PriorityQueue<Pair<Integer, Tree<T>>> pq = new PriorityQueue<Pair<Integer, Tree<T>>>(frek.size(), new  FrequentComparator<T>());
-		for(Map.Entry<T, Integer> entry : frek.entrySet())
-			pq.add(new Pair<Integer, Tree<T>>(entry.getValue(), new Tree<T>(entry.getKey())));
+		PriorityQueue<Pair<Integer, Tree>> pq = new PriorityQueue<Pair<Integer, Tree>>(frek.size(), new  FrequentComparator());
+		for(Map.Entry<Byte, Integer> entry : frek.entrySet())
+			pq.add(new Pair<Integer, Tree>(entry.getValue(), new Tree(entry.getKey())));
 		while(pq.size()>1){
-			Pair<Integer, Tree<T>> left = pq.poll();
-			Pair<Integer, Tree<T>> right = pq.poll();
-			pq.add(new Pair<Integer, Tree<T>>(left.getFirst()+right.getFirst(), new Tree<T>(left.getSecond(), right.getSecond())));
+			Pair<Integer, Tree> left = pq.poll();
+			Pair<Integer, Tree> right = pq.poll();
+			pq.add(new Pair<Integer, Tree>(left.getFirst()+right.getFirst(), new Tree(left.getSecond(), right.getSecond())));
 		}
-		Tree<T> root = pq.poll().getSecond();
-		HashMap<T, String> findcode = new HashMap<T, String>();
+		Tree root = pq.poll().getSecond();
+		HashMap<Byte, String> findcode = new HashMap<Byte, String>();
 		getCode(findcode, root, "");
+		OutputArrayData out = new OutputArrayData();
 		int datalength = 0;
-		for(T tmp : data){
+		for(Map.Entry<Byte, Integer> entry : frek.entrySet())
+			datalength += entry.getValue()*(findcode.get(entry.getKey()).length());
+		printTree(root, out);
+		out.writeInt(datalength);
+		for(Byte tmp : data){
 			String code = findcode.get(tmp);
-			datalength += code.length();
-			// for(int i=0;i<code.length();++i){
-				// if(code.charAt(i)=='0'){
-					
-				// }
-				// else{
-					
-				// }
-			// }
+			for(int i=0;i<code.length();++i){
+				if(code.charAt(i)=='0')
+					out.writeBit(false);
+				else
+					out.writeBit(true);
+			}
 		}
 		System.out.println("data size "+data.length+" become "+(datalength/8));
+		out.flush();
+		return out.getData();
 	}
-	private static<T> void getCode(HashMap<T, String> code, Tree<T> node, String str){
+	public static ArrayList<Byte> decompress(byte
+	private static void printTree(Tree node, OutputArrayData out){
+		if(node.getValue()==null){
+			out.writeBit(false);
+			printTree(node.getLeftChild(), out);
+			printTree(node.getRightChild(), out);
+		}
+		else{
+			out.writeBit(true);
+			out.writeByte(node.getValue());
+		}
+	}
+	private static void getCode(HashMap<Byte, String> code, Tree node, String str){
 		if(node.getValue()==null){
 			getCode(code, node.getLeftChild(), str+"0");
 			getCode(code, node.getRightChild(), str+"1");
@@ -180,9 +194,9 @@ class Huffman{
 			code.put(node.getValue(), str);
 		}
 	}
-	private static class FrequentComparator<T> implements Comparator<Pair<Integer, Tree<T>>>{
+	private static class FrequentComparator implements Comparator<Pair<Integer, Tree>>{
 		@Override
-		public int compare(Pair<Integer, Tree<T>> a, Pair<Integer, Tree<T>> b){
+		public int compare(Pair<Integer, Tree> a, Pair<Integer, Tree> b){
 			int x = a.getFirst() - b.getFirst();
 			if(x == 0)
 				return 0;
@@ -190,30 +204,100 @@ class Huffman{
 				return x<0? -1:1;
 		}
 	}
-	private static class Tree<T>{
-		private T value;
-		private Tree<T> left, right, parent;
+	private static class Tree{
+		private Byte value;
+		private Tree left, right, parent;
 		public Tree(){
 			value = null;
 			left = right = parent = null;
 		}
-		public Tree(T val){
+		public Tree(Byte val){
 			value = val;
 			left = right = parent = null;
 		}
-		public Tree(Tree<T> le, Tree<T> ri){
+		public Tree(Tree le, Tree ri){
 			value = null;
 			parent = null;
 			left = le;
 			right = ri;
 		}
-		public void setLeftChild(Tree<T> le){left = le;}
-		public void setRightChild(Tree<T> ri){right = ri;}
-		public void setParent(Tree<T> par){parent = par;}
-		public void setValue(T val){value = val;}
-		public Tree<T> getLeftChild(){return left;}
-		public Tree<T> getRightChild(){return right;}
-		public Tree<T> getParent(){return parent;}
-		public T getValue(){return value;}
+		public void setLeftChild(Tree le){left = le;}
+		public void setRightChild(Tree ri){right = ri;}
+		public void setParent(Tree par){parent = par;}
+		public void setValue(Byte val){value = val;}
+		public Tree getLeftChild(){return left;}
+		public Tree getRightChild(){return right;}
+		public Tree getParent(){return parent;}
+		public Byte getValue(){return value;}
 	}
+}
+
+class OutputArrayData{
+	byte buffer, counter;
+	ArrayList<Byte> data;
+	public OutputArrayData(){
+		counter = 7;
+		buffer = 0;
+		data = new ArrayList<Byte>();
+	}
+	public OutputArrayData(ArrayList<Byte> bytes){
+		counter = 7;
+		buffer = 0;
+		data = bytes;
+	}
+	public OutputArrayData(Byte[] bytes){
+		counter = 7;
+		buffer = 0;
+		for(Byte tmp : bytes)
+			data.add(tmp);
+	}
+	public void writeBit(boolean data){
+		if(data)
+			buffer += 1<<counter;
+		counter --;
+		if(counter == -1)
+			flush();
+	}
+	public void writeByte(byte data){
+		data = reverse(data);
+		for(int i=0;i<8;++i){
+			buffer += (data&1) <<counter;
+			data >>>=1;
+			if(--counter == -1)
+				flush();
+		}
+	}
+	public void writeInt(int data){
+		data = reverse(data);
+		for(int i=0;i<32;++i){
+			buffer += (data&1) <<counter;
+			data >>>=1;
+			if(--counter == -1)
+				flush();
+		}
+	}
+	public void flush(){
+		data.add(buffer);
+		buffer = 0;
+		counter = 7;
+	}
+	private byte reverse(byte val){
+		byte res = 0;
+		for(int i=0;i<8;++i){
+			res <<= 1;
+			res |= val&1;
+			val >>>=1;
+		}
+		return res;
+	}
+	private int reverse(int val){
+		int res = 0;
+		for(int i=0;i<4;++i){
+			res <<= 1;
+			res |= val&1;
+			val >>>=1;
+		}
+		return res;
+	}
+	public ArrayList<Byte> getData(){return data;}
 }
