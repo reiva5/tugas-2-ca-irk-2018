@@ -8,14 +8,16 @@ import java.util.Comparator;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.io.IOException;
 import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.DataInputStream;
 import java.io.FileOutputStream;
+import java.io.FileInputStream;
 
 public class Compressed {
-	private String asu = "Asu";
+	private ArrayList<Byte> data;
 	public Compressed(){
-		asu = "susu";
+		data = null;
 	}
 	public String toBytes(){
 		return "";
@@ -24,9 +26,8 @@ public class Compressed {
 		Compressed compressed = new Compressed();
 		try{
 			byte[] bytes = Files.readAllBytes(Paths.get(nameFile));
-			// LZ77.compress(bytes);
-			ArrayList<Byte> result =  Huffman.compress(bytes);
-			System.out.println(bytes.length+" become "+result.size());
+			data =  Huffman.compress(bytes);
+			System.out.println(bytes.length+" become "+data.size());
 		}
 		catch(IOException e){
 			System.out.println(e);
@@ -34,10 +35,71 @@ public class Compressed {
 		return compressed;
 	}
 	public void decompress(String nameFile){
-		
+		try{
+			InputArrayByte in = new InputArrayByte(nameFile);
+			do{
+				data = new ArrayList<Byte>();
+				Tree root = null;
+				readTree(root, in);
+				int datasize = in.readInt();
+				for(int i=0;i<datasize;++i)
+					data.add(readCodeData(root, in));
+				// Write to file :)
+			}while(in.readBit());
+			// closing file :)
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
 		return;
 	}
 	/* YOU CAN ADD ANOTHER METHOD OR VARIABLE BELOW HERE */
+	private void readTree(Tree node, InputArrayByte in) throws IOException{
+		if(in.readBit())
+			node = new Tree(in.readByte());
+		else{
+			Tree right=null, left=null;
+			readTree(left, in);
+			readTree(right, in);
+			node = new Tree(left, right);
+		}
+	}
+	private Byte readCodeData(Tree node, InputArrayByte in) throws IOException{
+		if(node.getValue()==null){
+			if(in.readBit())
+				return readCodeData(node.getRightChild(), in);
+			else
+				return readCodeData(node.getLeftChild(), in);
+		}
+		else
+			return node.getValue();
+	}
+	private static class Tree{
+		private Byte value;
+		private Tree left, right, parent;
+		public Tree(){
+			value = null;
+			left = right = parent = null;
+		}
+		public Tree(Byte val){
+			value = val;
+			left = right = parent = null;
+		}
+		public Tree(Tree le, Tree ri){
+			value = null;
+			parent = null;
+			left = le;
+			right = ri;
+		}
+		public void setLeftChild(Tree le){left = le;}
+		public void setRightChild(Tree ri){right = ri;}
+		public void setParent(Tree par){parent = par;}
+		public void setValue(Byte val){value = val;}
+		public Tree getLeftChild(){return left;}
+		public Tree getRightChild(){return right;}
+		public Tree getParent(){return parent;}
+		public Byte getValue(){return value;}
+	}
 };
 
 class Pair <T, U>{
@@ -54,6 +116,7 @@ class Pair <T, U>{
 }
 
 class Huffman{
+	private Huffman(){}
 	public static ArrayList<Byte> compress(byte[] data){
 		Map<Byte, Integer> frek = new HashMap<Byte, Integer>(); 
 		int n = data.length;
@@ -76,13 +139,10 @@ class Huffman{
 		HashMap<Byte, String> findcode = new HashMap<Byte, String>();
 		getCode(findcode, root, "");
 		OutputArrayData out = new OutputArrayData();
-		int datalength = 0;
-		for(Map.Entry<Byte, Integer> entry : frek.entrySet())
-			datalength += entry.getValue()*(findcode.get(entry.getKey()).length());
 		printTree(root, out);
-		out.writeInt(datalength);
+		out.writeInt(data.length);
 		for(Byte tmp : data){
-			String code = findcode.get(tmp);
+			final String code = findcode.get(tmp);
 			for(int i=0;i<code.length();++i){
 				if(code.charAt(i)=='0')
 					out.writeBit(false);
@@ -90,11 +150,10 @@ class Huffman{
 					out.writeBit(true);
 			}
 		}
-		System.out.println("data size "+data.length+" become "+(datalength/8));
+		// System.out.println("data size "+data.length+" become "+(datalength/8));
 		out.flush();
 		return out.getData();
 	}
-	public static ArrayList<Byte> decompress(byte
 	private static void printTree(Tree node, OutputArrayData out){
 		if(node.getValue()==null){
 			out.writeBit(false);
@@ -221,4 +280,50 @@ class OutputArrayData{
 		return res;
 	}
 	public ArrayList<Byte> getData(){return data;}
+}
+
+class InputArrayByte{
+	private static final int maxsize = 1000000000;
+	private DataInputStream in;
+	private byte[] data;
+	private int idx, bit, len;
+	public InputArrayByte(String filename) throws IOException{
+		in = new DataInputStream(new FileInputStream(filename));
+		data = new byte[maxsize];
+		idx = bit = 0;
+		readData();
+	}
+	public void readData() throws IOException{
+		len = in.read(data);
+		if(len==-1)
+			data[0] = 0;
+	}
+	public boolean readBit() throws IOException{
+		byte val = (byte)(1<<bit);
+		val &= data[idx];
+		if(++bit == 8){
+			bit=0;
+			if(++idx == len)
+				readData();
+		}
+		return val > 0;
+	}
+	public byte readByte() throws IOException{
+		byte val = 0;
+		for(int i=0;i<8;++i){
+			val <<= 1;
+			if(readBit())
+				val +=1;
+		}
+		return val;
+	}
+	public int readInt() throws IOException{
+		int val = 0;
+		for(int i=0;i<32;++i){
+			val <<= 1;
+			if(readBit())
+				val +=1;
+		}
+		return val;
+	}
 }
