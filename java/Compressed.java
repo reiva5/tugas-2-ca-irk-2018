@@ -1,26 +1,32 @@
+import java.lang.*;
+import java.util.*;
+import java.io.*;
+
 public class Compressed {
-	private ArrayList<Byte> dataByte;
 	private String data;
 	public Compressed(){
-		dataByte = null;
 		data = "";
 	}
 	
-	public byte[] toBytes(){
-		byte[] byteFile = new byte[dataByte.size()];
-		for (int i=0; i<dataByte.size(); i++) {
-			byteFile[i] = dataByte.get(i);
-		}
-		
-		return byteFile;
+	public String toBytes(){
+		return data;
 	}
-	
-	public String toString() {
-		return String(toBytes());
-	}
-	
+
 	public Compressed doCompress(String nameFile){
-		Compressed compressed = new Compressed();
+		int check = 0;
+		String nameTemp = "";
+		for (int i = 0; i < nameFile.length(); i++){
+			if (check > 0) {
+				check++;
+				nameTemp += nameFile.charAt(i);
+			} else {
+				if (nameFile.charAt(i) == '.'){
+					check = 1;
+				}
+			}
+		}
+		check--;
+		data += check + nameTemp;
 		
 		FileInputStream fileInputStream = null;
 		byte[] bytesArray = null;
@@ -44,9 +50,31 @@ public class Compressed {
 			}
 		}
 		
-		return compressed;
+		//Run Length Algorithm
+		if (bytesArray.length != 0) {
+			byte temp = bytesArray[0];
+			int count = 1;
+			for (int i=1; i<bytesArray.length; i++) {
+				String input = new String(new byte[] {temp});
+				if (temp == bytesArray[i]) {
+					count++;
+				} else {
+					if (count == 1) {
+						data = data + input;
+					} else {
+						data = data + input + '`' + count;
+						count = 1;
+					}
+					temp = bytesArray[i];
+				}
+				if (i == bytesArray.length - 1) {
+					data = data + input + count;
+				}
+			}
+		}
+		return this;
 	}
 	public void decompress(String nameFile){
 		return;
 	}
-};
+}
