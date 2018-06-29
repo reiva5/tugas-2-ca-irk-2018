@@ -10,6 +10,18 @@ int main(int argc, char* argv[]){
 		clock_t begin = clock();
 		tmp = doCompress(argv[1]);
 		clock_t end = clock();
+		string fileName = "";
+		for (int i = strlen(argv[1])-1; i >= 0; --i){
+			if (argv[1][i] == '.'){
+				for (int j = 0; j < i; ++j){
+					fileName += argv[1][j];
+				}
+			}
+		}
+		fileName += ".irk";
+		ofstream out(fileName);
+		out << tmp.toBytes() << endl;
+		out.close();
 		printf("Ukuran hasil kompresi adalah: %ld byte(s)\n", sizeof(tmp));
 		printf("Eksekusi waktu hasil kompresi adalah: %.03f second(s)\n", (double) (end - begin)/CLOCKS_PER_SEC);
 	} else {
