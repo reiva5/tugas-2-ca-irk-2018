@@ -20,14 +20,11 @@ public class Compressed {
 		data = null;
 		ext = "";
 	}
-	public String toBytes(){
-		String s = null;
+	public byte[] toBytes(){
 		byte[] tmp = new byte[data.size()];
 		for(int i=0;i<data.size();++i)
 			tmp[i] = data.get(i);
-		s = ext + (new String(tmp));
-		// System.out.println(s.length());
-		return s;
+		return tmp;
 	}
 	public Compressed doCompress(String nameFile){
 		try{
@@ -58,6 +55,8 @@ public class Compressed {
 			HashMap<Byte, String> findcode = new HashMap<Byte, String>();
 			getCode(findcode, root, "");
 			OutputArrayData out = new OutputArrayData();
+			for(int i=0;i<ext.length();++i)
+				out.writeByte((byte)ext.charAt(i));
 			printTree(root, out);
 			out.writeInt(databyte.length);
 			for(Byte tmp : databyte){
@@ -70,7 +69,7 @@ public class Compressed {
 				}
 			}
 			data = out.getData();
-			// System.out.println(databyte.length+" become "+data.size());
+			System.out.println(databyte.length+" become "+data.size());
 		}
 		catch(IOException e){
 			System.out.println(e);
@@ -79,23 +78,32 @@ public class Compressed {
 	}
 	public void decompress(String nameFile){
 		try{
-			InputArrayByte in = new InputArrayByte(nameFile);
 			data = new ArrayList<Byte>();
-			// read ext
+			InputArrayByte in = new InputArrayByte(Files.readAllBytes(Paths.get(nameFile)));
 			ext = "";
 			char c;
 			while( (c = (char) in.readByte()) != '/')
 				ext += c;
-			// read Tree
 			Tree root = null;
-			readTree(root, in);
-			// read original data byte lenth
+			root = readTree(in);
 			int datasize = in.readInt();
-			// read data
 			for(int i=0;i<datasize;++i)
 				data.add(readCodeData(root, in));
-			// Write to file :)
-			// closing file :)
+			// Write to file
+			int lastdot = nameFile.length();
+			for(int i=nameFile.length()-1;i>=0;--i){
+				if(nameFile.charAt(i)=='.'){
+					lastdot = i;
+					break;
+				}
+			}
+			String resultname = "";
+			for(int i=0;i<lastdot;++i)
+				resultname += nameFile.charAt(i);
+			resultname += "."+ext;
+			FileOutputStream writer = new FileOutputStream(resultname);
+			writer.write(toBytes());
+			writer.close();
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -103,17 +111,20 @@ public class Compressed {
 		return;
 	}
 	/* YOU CAN ADD ANOTHER METHOD OR VARIABLE BELOW HERE */
-	private void readTree(Tree node, InputArrayByte in) throws IOException{
+	public String toString(){
+		return new String(toBytes());
+	}
+	private Tree readTree(InputArrayByte in){
 		if(in.readBit())
-			node = new Tree(in.readByte());
+			return new Tree(in.readByte());
 		else{
-			Tree right=null, left=null;
-			readTree(left, in);
-			readTree(right, in);
-			node = new Tree(left, right);
+			Tree right, left;
+			left = readTree(in);
+			right = readTree(in);
+			return new Tree(left, right);
 		}
 	}
-	private Byte readCodeData(Tree node, InputArrayByte in) throws IOException{
+	private Byte readCodeData(Tree node, InputArrayByte in){
 		if(node.getValue()==null){
 			if(in.readBit())
 				return readCodeData(node.getRightChild(), in);
@@ -124,7 +135,7 @@ public class Compressed {
 			return node.getValue();
 	}
 	private void getExt(String nameFile){
-		int lastdot = -1;
+		int lastdot = nameFile.length();
 		for(int i=0;i<nameFile.length();++i){
 			if(nameFile.charAt(i)=='.')
 				lastdot = i;
@@ -226,24 +237,23 @@ class OutputArrayData{
 	}
 	public void writeBit(boolean data){
 		if(data)
-			buffer += 1<<counter;
-		counter --;
-		if(counter == -1)
+			buffer |= 1<<counter;
+		if(--counter == -1)
 			flush();
 	}
 	public void writeByte(byte data){
-		data = reverse(data);
+		data = reverseByte(data);
 		for(int i=0;i<8;++i){
-			buffer += (data&1) <<counter;
+			buffer |= (data&1) <<counter;
 			data >>>=1;
 			if(--counter == -1)
 				flush();
 		}
 	}
 	public void writeInt(int data){
-		data = reverse(data);
+		data = reverseInt(data);
 		for(int i=0;i<32;++i){
-			buffer += (data&1) <<counter;
+			buffer |= (data&1) <<counter;
 			data >>>=1;
 			if(--counter == -1)
 				flush();
@@ -254,7 +264,7 @@ class OutputArrayData{
 		buffer = 0;
 		counter = 7;
 	}
-	private byte reverse(byte val){
+	private byte reverseByte(byte val){
 		byte res = 0;
 		for(int i=0;i<8;++i){
 			res <<= 1;
@@ -263,9 +273,9 @@ class OutputArrayData{
 		}
 		return res;
 	}
-	private int reverse(int val){
+	private int reverseInt(int val){
 		int res = 0;
-		for(int i=0;i<4;++i){
+		for(int i=0;i<32;++i){
 			res <<= 1;
 			res |= val&1;
 			val >>>=1;
@@ -280,46 +290,37 @@ class OutputArrayData{
 }
 
 class InputArrayByte{
-	private static final int maxsize = 1000000000;
-	private DataInputStream in;
 	private byte[] data;
 	private int idx, bit, len;
-	public InputArrayByte(String filename) throws IOException{
-		in = new DataInputStream(new FileInputStream(filename));
-		data = new byte[maxsize];
-		idx = bit = 0;
-		readData();
+	public InputArrayByte(byte[] data){
+		this.data = data;
+		bit = 7;
+		idx = 0;
 	}
-	public void readData() throws IOException{
-		len = in.read(data);
-		if(len==-1)
-			data[0] = 0;
-	}
-	public boolean readBit() throws IOException{
+	public boolean readBit(){
 		byte val = (byte)(1<<bit);
 		val &= data[idx];
-		if(++bit == 8){
-			bit=0;
-			if(++idx == len)
-				readData();
+		if(--bit == -1){
+			bit=7;
+			++idx;
 		}
-		return val > 0;
+		return val != 0;
 	}
-	public byte readByte() throws IOException{
+	public byte readByte(){
 		byte val = 0;
 		for(int i=0;i<8;++i){
 			val <<= 1;
 			if(readBit())
-				val +=1;
+				val |=1;
 		}
 		return val;
 	}
-	public int readInt() throws IOException{
+	public int readInt(){
 		int val = 0;
 		for(int i=0;i<32;++i){
 			val <<= 1;
 			if(readBit())
-				val +=1;
+				val |=1;
 		}
 		return val;
 	}
