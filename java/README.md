@@ -6,7 +6,10 @@
 # Algoritma
 
 Algoritma yang digunakan dalam program kompresi ini adalah algoritma Huffman Coding.
-Algoritma ini dapat dibilang cukup effisien dalam melakukan kompresi.
+Algoritma Huffman adalah algoritma kompresi yang lossless yang menggunakan pendekatan statistik dengan cara melakukan pengkodean dalam bentuk bit 
+untuk mewakili data karakter. Huffman Coding menggunakan struktur pohon dalam pemrosesannya.
+
+Saya memilih algoritma ini karena cukup efisien dan banyak software yang menggunakan algoritma ini (baik yang tidak dimodifikasi maupun dimodifikasi) dalam melakukan kompresi.
 
 # Implementasi dan Analisis Kompleksistas
 
