@@ -59,3 +59,8 @@ Kompleksistas total : `O(S + N + M logM)`
 4. Membaca data file semula sambil melakukan transversal pada pohon huffman.
 
 Kompleksistas total : `O(N)`
+
+# Tambahan
+
+1. Kode penulisan data ke file diganti dari menggungakan `FileWriter` menjadi `FileOutputStream` untuk dapat menulis byte[] ke file, 
+karena alasan representasi String dari byte[] tidak sama dengan data awal byte[] sehingga membuat error ketika program dekompresi dijalankan.
