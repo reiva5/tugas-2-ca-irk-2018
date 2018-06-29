@@ -1,0 +1,7 @@
+all: create run
+
+create:
+	javac main_old.java
+
+run:
+	java main_old
