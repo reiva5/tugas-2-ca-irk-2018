@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Comparator;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,36 +15,86 @@ import java.io.FileInputStream;
 
 public class Compressed {
 	private ArrayList<Byte> data;
+	private String ext;
 	public Compressed(){
 		data = null;
+		ext = "";
 	}
 	public String toBytes(){
-		return "";
+		String s = null;
+		byte[] tmp = new byte[data.size()];
+		for(int i=0;i<data.size();++i)
+			tmp[i] = data.get(i);
+		s = ext + (new String(tmp));
+		// System.out.println(s.length());
+		return s;
 	}
 	public Compressed doCompress(String nameFile){
-		Compressed compressed = new Compressed();
 		try{
-			byte[] bytes = Files.readAllBytes(Paths.get(nameFile));
-			data =  Huffman.compress(bytes);
-			System.out.println(bytes.length+" become "+data.size());
+			getExt(nameFile);
+			byte[] databyte = Files.readAllBytes(Paths.get(nameFile));
+			Map<Byte, Integer> frek = new HashMap<Byte, Integer>(); 
+			int n = databyte.length;
+			for(byte tmp : databyte){
+				Integer counter = frek.get(tmp);
+				if(counter == null)
+					frek.put(tmp, 1);
+				else
+					frek.put(tmp, counter+1);
+			}
+			PriorityQueue<Pair<Integer, Tree>> pq = new PriorityQueue<Pair<Integer, Tree>>(frek.size(), new  FrequentComparator());
+			for(Map.Entry<Byte, Integer> entry : frek.entrySet())
+				pq.add(new Pair<Integer, Tree>(entry.getValue(), new Tree(entry.getKey())));
+			if(pq.size()==1){
+				Byte tmp = pq.peek().getSecond().getValue();
+				pq.add(new Pair<Integer, Tree>(0, new Tree((byte) (tmp+1))));
+			}
+			while(pq.size()>1){
+				Pair<Integer, Tree> left = pq.poll();
+				Pair<Integer, Tree> right = pq.poll();
+				pq.add(new Pair<Integer, Tree>(left.getFirst()+right.getFirst(), new Tree(left.getSecond(), right.getSecond())));
+			}
+			Tree root = pq.poll().getSecond();
+			HashMap<Byte, String> findcode = new HashMap<Byte, String>();
+			getCode(findcode, root, "");
+			OutputArrayData out = new OutputArrayData();
+			printTree(root, out);
+			out.writeInt(databyte.length);
+			for(Byte tmp : databyte){
+				final String code = findcode.get(tmp);
+				for(int i=0;i<code.length();++i){
+					if(code.charAt(i)=='0')
+						out.writeBit(false);
+					else
+						out.writeBit(true);
+				}
+			}
+			data = out.getData();
+			// System.out.println(databyte.length+" become "+data.size());
 		}
 		catch(IOException e){
 			System.out.println(e);
 		}
-		return compressed;
+		return this;
 	}
 	public void decompress(String nameFile){
 		try{
 			InputArrayByte in = new InputArrayByte(nameFile);
-			do{
-				data = new ArrayList<Byte>();
-				Tree root = null;
-				readTree(root, in);
-				int datasize = in.readInt();
-				for(int i=0;i<datasize;++i)
-					data.add(readCodeData(root, in));
-				// Write to file :)
-			}while(in.readBit());
+			data = new ArrayList<Byte>();
+			// read ext
+			ext = "";
+			char c;
+			while( (c = (char) in.readByte()) != '/')
+				ext += c;
+			// read Tree
+			Tree root = null;
+			readTree(root, in);
+			// read original data byte lenth
+			int datasize = in.readInt();
+			// read data
+			for(int i=0;i<datasize;++i)
+				data.add(readCodeData(root, in));
+			// Write to file :)
 			// closing file :)
 		}
 		catch(IOException e){
@@ -74,6 +123,37 @@ public class Compressed {
 		else
 			return node.getValue();
 	}
+	private void getExt(String nameFile){
+		int lastdot = -1;
+		for(int i=0;i<nameFile.length();++i){
+			if(nameFile.charAt(i)=='.')
+				lastdot = i;
+		}
+		ext = "";
+		for(int i=lastdot+1;i<nameFile.length();++i)
+			ext += nameFile.charAt(i);
+		ext += "/";
+	}
+	private void getCode(HashMap<Byte, String> code, Tree node, String str){
+		if(node.getValue()==null){
+			getCode(code, node.getLeftChild(), str+"0");
+			getCode(code, node.getRightChild(), str+"1");
+		}
+		else{
+			code.put(node.getValue(), str);
+		}
+	}
+	private static void printTree(Tree node, OutputArrayData out){
+		if(node.getValue()==null){
+			out.writeBit(false);
+			printTree(node.getLeftChild(), out);
+			printTree(node.getRightChild(), out);
+		}
+		else{
+			out.writeBit(true);
+			out.writeByte(node.getValue());
+		}
+	}
 	private static class Tree{
 		private Byte value;
 		private Tree left, right, parent;
@@ -99,6 +179,16 @@ public class Compressed {
 		public Tree getRightChild(){return right;}
 		public Tree getParent(){return parent;}
 		public Byte getValue(){return value;}
+	}
+	private static class FrequentComparator implements Comparator<Pair<Integer, Tree>>{
+		@Override
+		public int compare(Pair<Integer, Tree> a, Pair<Integer, Tree> b){
+			int x = a.getFirst() - b.getFirst();
+			if(x == 0)
+				return 0;
+			else
+				return x<0? -1:1;
+		}
 	}
 };
 
@@ -113,103 +203,6 @@ class Pair <T, U>{
 	public void setSecond(U second){ se = second; }
 	public T getFirst(){ return fi; }
 	public U getSecond(){ return se; }
-}
-
-class Huffman{
-	private Huffman(){}
-	public static ArrayList<Byte> compress(byte[] data){
-		Map<Byte, Integer> frek = new HashMap<Byte, Integer>(); 
-		int n = data.length;
-		for(byte tmp : data){
-			Integer counter = frek.get(tmp);
-			if(counter == null)
-				frek.put(tmp, 1);
-			else
-				frek.put(tmp, counter+1);
-		}
-		PriorityQueue<Pair<Integer, Tree>> pq = new PriorityQueue<Pair<Integer, Tree>>(frek.size(), new  FrequentComparator());
-		for(Map.Entry<Byte, Integer> entry : frek.entrySet())
-			pq.add(new Pair<Integer, Tree>(entry.getValue(), new Tree(entry.getKey())));
-		while(pq.size()>1){
-			Pair<Integer, Tree> left = pq.poll();
-			Pair<Integer, Tree> right = pq.poll();
-			pq.add(new Pair<Integer, Tree>(left.getFirst()+right.getFirst(), new Tree(left.getSecond(), right.getSecond())));
-		}
-		Tree root = pq.poll().getSecond();
-		HashMap<Byte, String> findcode = new HashMap<Byte, String>();
-		getCode(findcode, root, "");
-		OutputArrayData out = new OutputArrayData();
-		printTree(root, out);
-		out.writeInt(data.length);
-		for(Byte tmp : data){
-			final String code = findcode.get(tmp);
-			for(int i=0;i<code.length();++i){
-				if(code.charAt(i)=='0')
-					out.writeBit(false);
-				else
-					out.writeBit(true);
-			}
-		}
-		// System.out.println("data size "+data.length+" become "+(datalength/8));
-		out.flush();
-		return out.getData();
-	}
-	private static void printTree(Tree node, OutputArrayData out){
-		if(node.getValue()==null){
-			out.writeBit(false);
-			printTree(node.getLeftChild(), out);
-			printTree(node.getRightChild(), out);
-		}
-		else{
-			out.writeBit(true);
-			out.writeByte(node.getValue());
-		}
-	}
-	private static void getCode(HashMap<Byte, String> code, Tree node, String str){
-		if(node.getValue()==null){
-			getCode(code, node.getLeftChild(), str+"0");
-			getCode(code, node.getRightChild(), str+"1");
-		}
-		else{
-			code.put(node.getValue(), str);
-		}
-	}
-	private static class FrequentComparator implements Comparator<Pair<Integer, Tree>>{
-		@Override
-		public int compare(Pair<Integer, Tree> a, Pair<Integer, Tree> b){
-			int x = a.getFirst() - b.getFirst();
-			if(x == 0)
-				return 0;
-			else
-				return x<0? -1:1;
-		}
-	}
-	private static class Tree{
-		private Byte value;
-		private Tree left, right, parent;
-		public Tree(){
-			value = null;
-			left = right = parent = null;
-		}
-		public Tree(Byte val){
-			value = val;
-			left = right = parent = null;
-		}
-		public Tree(Tree le, Tree ri){
-			value = null;
-			parent = null;
-			left = le;
-			right = ri;
-		}
-		public void setLeftChild(Tree le){left = le;}
-		public void setRightChild(Tree ri){right = ri;}
-		public void setParent(Tree par){parent = par;}
-		public void setValue(Byte val){value = val;}
-		public Tree getLeftChild(){return left;}
-		public Tree getRightChild(){return right;}
-		public Tree getParent(){return parent;}
-		public Byte getValue(){return value;}
-	}
 }
 
 class OutputArrayData{
@@ -279,7 +272,11 @@ class OutputArrayData{
 		}
 		return res;
 	}
-	public ArrayList<Byte> getData(){return data;}
+	public ArrayList<Byte> getData(){
+		if(counter<3)
+			flush();
+		return data;
+	}
 }
 
 class InputArrayByte{
