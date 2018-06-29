@@ -14,7 +14,7 @@ if  __name__ == "__main__":
 		while (fileName[i] != '.'):
 			i -= 1
 		fileName = fileName[:i]
-		f = open(sys.argv[1]+'.irk', 'w')
+		f = open(fileName+'.irk', 'wb')
 		f.write(tmp.toBytes())
 		f.close()
 		print("Ukuran hasil kompresi adalah: %ld byte(s)" % sys.getsizeof(tmp))
