@@ -1,15 +1,10 @@
 /**
-  * ByteConverter Class
+  * BitByteConverter Class
   * Used to convert boolean array to byte and alt
  **/
 
-public class ByteConverter {
+public class BitByteConverter {
 	
-	/**
-	  * convert a boolean array of length 8 to a byte
-	  * @param array the boolean array to convert
-	  * @return the byte that the array creates
-	 **/
 	public static byte booleanArrayToByte(boolean[] array) {
 		byte character = 0;
 		if (array.length == 8) {
@@ -44,11 +39,6 @@ public class ByteConverter {
 		return character;
 	}
 	
-	/**
-	  * convert a byte to a boolean array of length 8
-	  * @param characterbyte the byte to convert
-	  * @return boolean array the byte corresponds to
-	 **/
 	public static boolean[] byteToBooleanArray(byte characterbyte) {
 		boolean[] array = new boolean[8];
 		array[0] = ((characterbyte & 0x80) != 0); //Leftmost
