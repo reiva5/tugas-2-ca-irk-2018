@@ -1,4 +1,4 @@
-# Compression-Huffman
+# Compression dengan Huffman Coding Algorithm
 ### Dibuat oleh David Timothy Panjaitan, NIM 13516075
 
 Algoritma kompresi file menggunakan Huffman Coding Algorithm. Algoritma ini dipilih karena merupakan algoritma kompresi yang *lossless*, cukup sederhana, dan memiliki rasio kompresi yang cukup baik untuk beberapa jenis file.

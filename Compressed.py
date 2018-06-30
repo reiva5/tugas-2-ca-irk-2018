@@ -187,7 +187,7 @@ class HuffmanAlgorithm:
         return output
 
 class Compressed:
-    def __init__(self, file):
+    def __init__(self, file=None):
         self.file = file
         self.bitsout = bytearray()
 
@@ -239,11 +239,11 @@ class Compressed:
 def doCompress(namaFile):
     comp = Compressed(namaFile)
     comp.compress()
-    namatemp = namaFile.split('.')
-    namatemp[-1] = 'irk'
-    namabaru = '.'.join(namatemp)
-    with open(namabaru, 'wb') as newfile:
-        newfile.write(comp.toBytes())
+    #namatemp = namaFile.split('.')
+    #namatemp[-1] = 'irk'
+    #namabaru = '.'.join(namatemp)
+    #with open(namabaru, 'wb') as newfile:
+    #    newfile.write(comp.toBytes())
     return comp
 
 def decompress(namaFile):
