@@ -19,10 +19,12 @@ public class Compressed {
 	}
 
 	public Compressed doCompress(String nameFile){
-		File f1 = new File(namaFile);
-		FileInputStream fis1 = new FileInputStream(cin);
-		FileInputStream fis2 = new FileInputStream(cin);
+		File f1 = new File(nameFile);
+		FileInputStream fis1 = new FileInputStream(nameFile);
+		FileInputStream fis2 = new FileInputStream(nameFile);
+		FileOutputStream fos = new FileOutputStream(nameFile);
 		Compressed compressed = new Compressed();
+		compressed.compressHuffman(fis1, fis2, fos);
 
 		return compressed;
 	}
@@ -30,7 +32,7 @@ public class Compressed {
 		return;
 	}
 
-	public String compressHuffman(InputStream in1, InputStream in2){
+	public String compressHuffman(InputStream in1, InputStream in2, OutputStream out){
 		WriteBuffer wb = new WriteBuffer(out, true);
 		byte[] buffer = new byte[10240];
 			
