@@ -10,7 +10,7 @@ Algoritma LZW adalah algoritma kompresi yang lossless universal yang diciptakan 
 
 Saya memilih algoritma ini karena cukup efisien dan merupakan satu loncatan besar di dalam perjalanan riset kompresi data. Walaupun cukup sulit dalam mengimplementasikan algoritma ini, saya bersyukur bisa belajar dan mengeksplornya di masa libur saya. 
 
-# Implementasi dan Analisis Kompleksistas
+# Implementasi dan Analisis Kompleksitas
 
 ## Dictionary Pada File
 
