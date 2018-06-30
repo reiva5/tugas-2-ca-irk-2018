@@ -51,20 +51,25 @@ public class Compressed {
 		}
 		
 		//Run Length Algorithm
+		nameTemp = "";
 		if (bytesArray.length != 0) {
 			byte temp = bytesArray[0];
 			int count = 1;
 			for (int i=1; i<bytesArray.length; i++) {
 				String input = new String(new byte[] {temp});
+				nameTemp += input;
 				if (temp == bytesArray[i]) {
 					count++;
 				} else {
 					if (count == 1) {
 						data = data + input;
+					} else if ((count == 2) || (count == 3)){
+						data += nameTemp;
 					} else {
-						data = data + input + '`' + count;
+						data = data + input + "`[" + count;
 						count = 1;
 					}
+					nameTemp = "";
 					temp = bytesArray[i];
 				}
 				if (i == bytesArray.length - 1) {
