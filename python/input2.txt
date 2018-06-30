@@ -1,0 +1,404 @@
+Skip to content
+
+<#start-of-content>
+
+<https://github.com/>
+*kevinandrianliu <https://github.com/kevinandrianliu>* / *Tugas-2-Ca-IRK
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK>*
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/projects/new>
+<https://github.com/notifications>
+
+  *
+    In this repository All GitHub ↵
+    Jump to ↵
+
+  * No suggested jump to results
+
+  * Octocat Spinner Icon
+
+  *
+    Dashboard
+
+    <https://github.com/dashboard>
+  *
+    Pull requests
+
+    <https://github.com/pulls>
+  *
+    Issues
+
+    <https://github.com/issues>
+  *
+    Marketplace
+
+    <https://github.com/marketplace>
+  *
+    Explore
+
+    <https://github.com/explore>
+
+  * <https://github.com/notifications>
+  *
+
+        New repository
+
+        <https://github.com/new>
+        Import repository
+
+        <https://github.com/new/import>
+        New gist
+
+        <https://gist.github.com/>
+        New organization
+
+        <https://github.com/organizations/new>
+        This repository
+        New issue
+
+        <https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/issues/new> 
+
+  * @kevinandrianliu kevinandrianliu <https://github.com/kevinandrianliu>
+    @kevinandrianliu
+
+      o Signed in as *kevinandrianliu*
+      o
+      o
+        Your profile
+
+        <https://github.com/kevinandrianliu>
+      o
+        Your stars
+
+        <https://github.com/kevinandrianliu?tab=stars>
+      o
+        Your gists
+
+        <https://gist.github.com/>
+      o
+      o
+        Help
+
+        <https://help.github.com/>
+      o
+        Settings
+
+        <https://github.com/settings/profile>
+      o
+        Sign out
+
+Sign out
+
+Sign out
+
+  *
+    Watch
+
+    <https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/subscription>
+    0
+
+    <https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/watchers>
+
+    Notifications
+
+    Not watching Be notified when participating or @mentioned. Watch
+
+    Watching Be notified of all conversations. Unwatch
+
+    Ignoring Never be notified. Stop ignoring
+
+  *
+    Unstar
+
+    0
+
+    <https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/stargazers>
+    Star
+
+    0
+
+    <https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/stargazers>
+
+  *
+    Fork
+
+    0
+
+    <https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/network>
+
+
+  kevinandrianliu <https://github.com/kevinandrianliu>/*Tugas-2-Ca-IRK
+  <https://github.com/kevinandrianliu/Tugas-2-Ca-IRK>*
+
+Code
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK>
+Issues 0
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/issues>
+Pull requests 0
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/pulls>
+Projects 0
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/projects>
+Wiki
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/wiki>
+Insights
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/pulse>
+Settings
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/settings>
+
+Permalink
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/blob/9271801a724b9f2703c1530c8e58deb5dfd9f1ea/input2.txt>
+
+/Branch:/ master
+
+Switch branches/tags
+
+  * Branches <#>
+  * Tags <#>
+
+master
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/blob/master/input2.txt>
+
+Create branch: from ‘master’
+Nothing to show
+Find file
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/find/master>
+Copy path
+
+Tugas-2-Ca-IRK
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK>/*input2.txt*
+913a571
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/commit/913a57154275d756cdcf43e8fd130b6223659c03>
+2 hours ago
+@kevinandrianliu <https://github.com/kevinandrianliu> kevinandrianliu
+<https://github.com/kevinandrianliu> Taken from my Discrete Mathematics
+Paper
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/commit/913a57154275d756cdcf43e8fd130b6223659c03>
+
+*1* contributor
+
+
+    Users who have contributed to this file
+
+  * @kevinandrianliu <https://github.com/kevinandrianliu>
+    kevinandrianliu <https://github.com/kevinandrianliu>
+
+Raw
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/raw/master/input2.txt>
+Blame
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/blame/master/input2.txt>
+History
+
+<https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/commits/master/input2.txt>
+
+<x-github-client://openRepo/https://github.com/kevinandrianliu/Tugas-2-Ca-IRK?branch=master&filepath=input2.txt>
+
+159 lines (121 sloc) 25.7 KB
+	Pemanfaatan Pohon Keputusan terhadap Pengambilan Langkah dalam Permainan Scrabble
+	
+	Kevin Andrian Liwinata 13516118 
+	Program Studi Teknik Informatika 
+	Sekolah Teknik Elektro dan Informatika
+	Institut Teknologi Bandung, Jl. Ganesha 10 Bandung 40132, Indonesia 
+	kevinandrianliu@gmail.com
+	
+	Abstract—Scrabble merupakan permainan dengan kata berbahasa Inggris yang memerlukan pemahaman akan kata-kata yang valid dalam kamus Scrabble, suatu kamus bahasa Inggris yang berbeda dari kamus berbahasa Inggris kebanyakan, serta strategi dan taktik untuk memenangkan suatu permainan. Banyaknya aturan dan kata dalam berbahasa Inggris inilah yang membuat seorang pemain harus menguasai cara-cara pengambilan keputusan yang tepat untuk menentukan strategi dan taktik dalam suatu permainan Scrabble. Cara pengambilan keputusan inilah menggunakan pohon keputusan.
+	Keywords—kata, Scrabble, strategi, taktik, pohon keputusan. 
+	
+	I.   PENDAHULUAN
+	Scrabble adalah permainan yang terdiri dari 2-4 orang dengan menggunakan papan berbentuk kotak-kotak berukuran 15x15. Tujuan dari Scrabble adalah mengumpulkan sebanyak-banyaknya nilai dari kata berbahasa Inggris yang dianggap sahih menurut kamus Scrabble. Kamus yang digunakan dalam permainan Scrabble adalah kamus yang khusus dan berbeda dengan kamus berbahasa Inggris pada umumnya, terutama pada penghilangan sejumlah singkatan dan penambahan kata-kata “gaul”. Salah satu hal yang menarik dai Scrabble adalah tersebarnya jumlah huruf yang merata sesuai dengan statistik banyaknya kata yang dapat dibentuk dari huruf-huruf tersebut, serta setiap pemain hanya mendapatkan 7 huruf dalam sekali langkah permainan. Aturan pengambilan huruf setelah meletakkan hurufpun juga mengambil huruf-huruf secara acak dalam kantong yang berisi huruf sebagaimana sehingga jumlah hurufnya tetap 7.
+	II.  LANDASAN TEORI
+	   Pohon adalah salah satu bentuk graf tak-berarah terhubung yang tidak mempunyai sirkuit di dalamnya. Penambahan satu atau lebih sisi dapat membentuk sirkuit pada pohon tersebut. Salah satu jenis pohon yang sering digunakan adalah pohon berakar. Pohon berakar adalah pohon yang terdiri atas akar sebagai orang tua dan mempunyai anak-anak. Jumlah anak pada suatu pohon selalu tetap, tetapi mungkin berbeda antar satu pohon dengan pohon yang lainnya, oleh karena itu pohon berakar sering disebut pohon n-ary, dengan n adalah bilangan asli dengan minimal dua. Misalkan pohon berakar dengan setiap orang tuanya memiliki 2 anak disebut pohon binary(biner), 3 anak disebut pohon ternary, dan seterusnya. Berikut ini adalah beberapa istilah penting dalam pohon berakar:
+	1. Anak(children) dan Orang tua(parent)
+	Anak adalah percabangan dari induk, sedangkan orang tua merupakan akar dari anak. Simpul orang tua dan simpul anak dihubungkan oleh suatu sisi. Pada gambar 1, simpul orang tua a mempunyai simpul anak b, c dan d; simpul orang tua f tidak mempunyai anak; simpul orang tua i mempunyai anak o dan p.
+	
+	Gambar 1. Contoh pohon berakar (sumber: Rosen, Discrete Mathematics and Its Applications, 7th Ed. )
+	
+	2. Lintasan(path)
+	Lintasan adalah kumpulan sisi dari salah satu simpul menuju salah simpul lainnya pada pohon sebagaimana simpul sebelumnya adalah orang tua dari simpul setelahnya, aau secara matematis dinyatakan sebagai kumpulan simpul v1,v2,…,vn sehingga untuk setiap bilangan asli i, simpul vi adalah orang tua dari simpul vi+1. Pada gambar 1, lintasan dari a ke q dapat dinyatakan sebagai berikut: a-d-i-o-q dengan panjang lintasan 4. 
+	
+	3. Saudara Kandung(sibling)
+	Dua buah simpul dinyatakan saudara kandung satu sama lain jika dan hanya jika mereka mempunyai simpul orang tua yang sama. Pada gambar 1, j dan k adalah saudar kandung, h dan i adalah saudara kandung, tetapi n, o, dan p bukan saudara kandung.
+	
+	4. Upapohon(subtree)
+	Upapohon merupakan pohon yang merupakan cabang dari pohon. Dalam suatu pohon terdapat banyak upapohon yang akarnya adalah anak dari simpul orang tuanya. Pohon pada gambar 1 terdiri dari akar a, dan upapohon yang dibentuk dengan akar b, c, dan d.
+	
+	5. Derajat(degree)
+	Derajat suatu pohon sebenarnya sama dengan jumlah anak dari pohon tersebut. Salah satu istilah penting dalam derajat adalah derajat maksimum, yaitu derajat yang paling besar dari semua upapohon dalam suatu pohon. Derajat maksimum dari pohon inilah yang membentuk konsep pohon berakar n-ary, dengan n bilangan asli. Pada gambar 1, derajat dari simpul f adalah 0, derajat dari simpul h adalah 1, dan derajat dari simpul o adalah 3. Derajat maksimum dari pohon ini adalah 3, sehingga pohon ini disebut pohon ternary. 
+	
+	6.Daun(terminal)
+	Simpul yang tidak memiliki anak dan upapohon lagi, sehingga menjadi penanda terakhir dari path yang melalui simpul tersebut. Pada gambar 1, simpul c, f, j, k, l, m, n, p, q, r, dan s adalah daun.
+	
+	7. Simpul dalam(internal nodes)
+	Simpul dalam adalah simpul yang bukan termasuk daun, atau mempunyai anak. Pada gambar 1, simpul a, b, d, e, g, h, i, dan o adalah simpul dalam.
+	
+	8. Aras/Level/Tingkat
+	Aras adalah banyak lintasan dari suatu akar menuju ke simpul tersebut. Aras dari akar dimulai dari 0. Pada gambar 1, simpul a beraras 0, simpul b, c, dan d beraras 1, simpul e, f, g, h, dan i beraras 1, simpul j, k, l, m, o, dan p beraras 2, sedangkan simpul q, r, dan s beraras 3.
+	
+	9. Tinggi/Kedalaman Pohon
+	Tinggi pohon merupakan jumlah maksimum simpul yang dilewati dari suatu akar dan membentuk suatu lintasan. Pada gambar 1, tinggi pohon adalah 4.
+	
+	10. Leluhur(ancestor) dan Keturunan(descendant)
+	Suatu simpul V1 dapat dinyatakan sebagai keturunan dari simpul V2 jika dan hanya jika terdapat suatu lintasan yang menguhubungkan antara V1 dan V2, dengan V2 adalah leluhur dari V1. Pada gambar 1, simpul a adalah keturunan sedangkan simpul j adalah keturunannya.
+	
+	Salah satu aplikasi dari pohon berakar adalah pohon keputusan. Pohon keputusan adalah semua simpul dalamnya adalah kriteria-kriteria yang dipertimbangkan dalam pengambilan suatu keputusan dan terminal akan menunjukkan hasil dari keputusan yang diambil dengan mengambil suatu lintasan dari akar utama menuju ke simpul terminal tersebut. 
+	
+	Gambar 2. Contoh pohon keputusan dalam menentukan semua kemungkinan yang terjadi dalam penentuan koin yang palsu yang lebih ringan daripada semua koin yang lainnya, ditunjukkan pada gambar di baris kedua (sumber: Rosen, Discrete Mathematics and Its Applications, 7th Ed. )
+	
+	III. DASAR PERMAINAN SCRABBLE
+	Berikut ini adalah beberapa istilah umum dalam permainan Scrabble:
+	1. Shuffle adalah proses pengubahan posisi huruf-huruf dalam dek setiap pemain dengan tujuan mendapatkan imbuhan atau kata-kata yang sebelumnya tidak dipikirkan atau memisahkan imbuhan atau kata-kata yang dapat dimainkan dalam suatu langkah.
+	2. Exchange adalah proses pertukaran huruf dengan syarat jumlah huruf yang tersisa dalam kantong huruf adalah 10. Teknis pertukarannya adalah dengan meletakkan minimal 1 huruf yang akan diganti dalam posisi terbalik(jenis huruf dan nilainya tidak terlihat) dan mengambil huruf dari kantong huruf sejumlah huruf yang diletakkan.
+	3. Pass adalah proses melanjutkan langkah tanpa meletakkan huruf pada papan Scrabble. Pass yang dilakukan masing-masing tiga kali secara berturut-turut oleh setiap pemain akan menyebabkan permainan menjadi berakhir.
+	4. Hook adalah proses meletakkan satu huruf yang membentuk kata valid pada permainan dengan cara menempelkannya ke kata yang diinginkan. Hook merupakan salah satu langkah yang kuat karena bisa dipadukan dengan membentuk kata yang valid dengan secara sengaja melakukan hook kepada kata yang diinginkan. Contohnya adalah peletakkan kata GOWN pada kata WIN sehingga terbentuk WING sebagai hooknya dan GOWN.
+	5. Extension adalah proses menambahkan lebih dari dua huruf ke kata, biasanya berbentuk afiks seperti prefix RE- dengan kata NAME menjadi RENAME, sufiks –D dengan kata RATE menjadi RATED, atau konfiks dan/atau simulfiks seperti EN- dan –MENT dalam LARGE menjadi ENLARGEMENT.
+	6. Paralel adalah proses membentuk kata yang berisisan dengan kata yang sudah ada, seperti kata FARM dengan kata NEIGH sehingga membentuk FARM, NEIGH, AN, RE, dan MI.
+	F	A	R	M		
+		N	E	I	G	H
+	
+	Gambar 3. Proses paralel dari FARM dan NEIGH
+	
+	Berikut ini adalah istilah-istilah yang digunakan dalam proses penilaian Scrabble:
+	1. Nilai dasar, yaitu nilai total dari semua huruf tanpa adanya tambahan poin dari petak-petak khusus
+	2. Petak-petak khusus, yaitu petak-petak yang bisa meningkatkan poin sesuai dengan tipenya masing-masing, yaitu:
+	a.	Double Letter, yaitu petak yang mengalikan nilai dari huruf yang berada pada petak tersebut dengan 2.
+	b.	Triple Letter, yaitu petak yang mengalikan nilai dari huruf yang berada pada petak tersebut dengan 3.
+	c.	DoubleWord, yaitu petak yang mengalikan nilai dasar dengan huruf yang berada pada petak tersebut dengan 2.
+	d.	Triple Word, yaitu petak yang mengalikan nilai dasar dengan huruf yang berada pada petak tersebut dengan 3.
+	
+	Perhitungan nilai dalam suatu permainan Scrabble mengikuti atruan sebagai berikut:
+	1. Nilai setiap huruf dihitung sehingga didapatkan nilai dasar
+	2. Jika ada huruf yang menempati petak Double Letter dan/atau Triple Letter, huruf tersebut dikalikan sesuai dengan definisi petak tersebut.
+	3. Jika ada huruf yang menempati petak Double Word dan/atau Triple Word.
+	4. Jika ada suatu kata melalui petak khusus, mekanisme perhitungannya adalah dikalikan semua sesuai dengan petaknya dengan petak Double Letter dan/atau Triple Letter dihitung terlebih dahulu, dilanjutkan dengan petak Double Word dan/atau Triple Word.
+	5. Jika ada suatu kata yang terbentuk dengan proses paralel, nilai kata tersebut adalah penjumlahan nilai dari setiap kata yang terbentuk beserta dengan nilai-nilai dari petak khusus tersebut.
+	6. Jika ada seorang pemain yang meletakkan ketujuh huruf yang ada pada deknya dalam suatu langkah atau Bingo, ia mendapatkan bonus nilai sebesar 50, dan jika ada huruf yang mengenai petak Double Word dan/atau Triple Word , bonus nilai tersebut berlaku seperti pada aturan nomor 3.
+	7. Jika permainan berakhir, setiap pemain dikurangi dengan nilai dasar dari semua huruf dalam deknya. Jika ada salah satu pemain yang berhasil menghabiskan semua huruf-hurufnya, ia 
+	berhak mendapatkan tambahan nilai sesuai dengan nilai dasar dari semua huruf yang masih berada pada dek lawannya.
+	
+	Posisi huruf dapat dinyatakan dalam format <baris><kolom> dengan baris terdiri dari angka 1 sampai 15 sedangkan kolom terdiri dari huruf A sampai dengan O. 
+	Stem merupakan suatu istilah dalam pembangunan kata, yaitu susunan huruf yang dapat membentuk banyak kata jika digabungkan dengan huruf-huruf lainnya. Salah satu pengaplikasiannya adalah pada bingo stem, seperti contoh yang paling terkenal yaitu RETINA yang mempunyai 55 kemungkinan kata yang bisa dibentuk dari 17 huruf berbeda. 
+	
+	Gambar 5. Kemungkinan bingo stem dari RETINA dan kata-kata yang mungkin dibentuk olehnya(sumber:  http://www.scrabblelists.com/lists/retina diakses tanggal 3 Desember 2017)
+	
+	Salah satu hal yang menarik selanjutnya adalah challenge. Seorang pemain dapat melakukan challenge jika ia merasa ragu terhadap minimal salah satu kata atau lebih dari lawannya. Ia bisa meminta juri dalam permainan Scrabble untuk memutuskan kata yang di-challenge merupakan kata yang valid dalam kamus Scrabble atau tidak. Jika semua kata tersebut valid, pemain yang melakukan challenge tersebut bisa mendapat pengurangan 5 poin, atau aturan-aturan lainnya yang diatur oleh wilayah-wilayah tertentu. Jika ada dari kata-kata tersebut yang tidak valid, pemain yang di-challenge harus mengambil kembali semua huruf yang telah ia tempatkan pada langkahnya.
+	
+	IV.   PENERAPAN POHON KEPUTUSAN TERHADAP PENGAMBILAN SUATU LANGKAH DALAM PERMAINAN SCRABBLE
+	Permainan Scrabble adalah permainan yang penuh dengan strategi di dalamnya, tetapi permainan ini sepenuhnya bergantung pada kemampuan penggunanya dalam memanfaatkan setiap kesempatan yang ada dengan susunan huruf-huruf yang ia punyai. 
+	Permainan Scrabble dapat dibagi menjadi permainan awal, permainan pertengahan dan permainan akhir. Permainan awal dimulai dengan adanya kata pertama yang diletakkan dengan salah satu hurufnya berada pada kotak berbentuk bintang yang dilakukan oleh pemain dengan giliran pertama. Ungkapan dalam Scrabble berbunyi: “Pemain pertama akan memenangkan suatu permainan Scrabble.” Pernyataan ini bisa dipahami karena pemain pertama akan menentukan jalannya permainan itu sendiri sejak awal, sama seperti permainan catur. Namun, pemain kedua juga mempunyai kesempatan untuk mendapatkan poin yang besar dengan jeli melihat kata-kata yang dapat dibentuk dari kata yang diberikan oleh pemain pertama. Tipe pembukaan pun ada berbagai macam, yaitu secara vertikal dan horizontal. Penggunaan tipe pembukaan secara vertikal terdengar aneh, tetapi dengan banyaknya lawan yang tidak terbiasa dengan tipe pembukaan seperti ini dapat membuat fokus lawan menurun karena sibuk mencerna kata 
+	yang dibuat oleh pemain pertama, dan tidak terbiasanya mereka dengan orientasi yang digunakan dapat mengurangi waktu mereka untuk berpikir juga. Pemain pertama perlu memperhatikan kemungkinan huruf yang disusun agar terhindar dari penempatan huruf pertama yang memungkinkan pembuatan salah satu kata dari kelompok kata dengan teknik paralel yang terdiri dari dua huruf dengan huruf kedua bernilai poin tinggi pada bagian Double Letter, kemungkinan hook depan dan belakang(dalam bahasa Perancisnya disebut Benjamin), dan posisi Double-Double Lane. Permasalahan mengenai Double Letter adalah sebagai berikut:
+	
+	Misalkan Anda mempunyai huruf D, I, O, A, Z, P, dan K. Salah satu kemungkinan yang mungkin dari susunan ini adalah kata DIAZO, dengan posisi seperti pada gambar 5. Langkah ini terlihat cukup bagus karena bernilai 30 sehingga sangat bagus karena menghasilkan poin yang cukup tinggi, tetapi menghasilkan suatu hal yang riskan. Kondisi ini menyebabkan Double Letter di bawah dan di atas dan di bawah huruf A dan O menjadi terbuka. Kemungkinan pembentukan kata dengan proses paralel dengan huruf pertama atau kedua A atau O dengan nilai huruf pembentuk paralelnya yang bernilai di atas 8 ada JA, JO, ZA dan ZO. Ini baru secara vertikal saja, belum secara horizontal(dengan adanya aturan kelima). Contohnya pembuatan kata OX dari dek yang berisi X, O, T , ?(blank), G, B, I saja menghasilkan nilai 45, sedikit lebih besar daripada pemain pertama.
+	Permasalahan kedua terjadi akibat kurang cermatnya meletakkan kata pada papan Scrabble. Kata yang dikeluarkan mudah diakali dengan menggunakan teknik ekstensi yang dapat memperpanjang suatu kata dengan mengincar petak Triple Word atau dengan huruf  konsonan yang bernilai tinggi diletakkan pada petak Triple Letter. Salah satu contoh yang membuat pemain Scrabble sering terjebak adalah menempatkan kata JOINT pada petak dengan huruf J berada pada petak Double Letter dan huruf T pada petak berbintang sehingga menghasilkan nilai sebesar 40. Langkah ini terlihat menguntungkan karena niai yang dihasilkan cukup besar pada langkah pertama, tetapi menghasilkan sesuatu yang riskan karena saat ditambah prefix DIS- menjadi DISJOINT, lawan bis mengumpulkan nilai sebesar 48 yang sedikit lebih besar daripada langkah pemain pertama tadi.
+	Permasalahan ketiga juga terjadi akibat kurang cermatnya meletakkan kata pada papan Scrabble. Kata yang dikeluarkan mudah diakali dengan menggunakan teknik bingo, baik menggunakan kata yang terdiri dari 8 huruf atau dikombinasikan dengan hook sehingga dua petak Double Word pada kolom E atau K atau baris 5 atau 11 sehingga mendapatkan nilai sebesar nilai dasar dikali empat lalu ditambah dengan 50. Nilai ini cukup besar karena setidaknya akan mendapat nilai 82 dari 8 huruf yang masing-masing bernilai satu.
+	Ketiga kemungkinan langkah di atas hanya berlaku untuk kondisi terburuk, yaitu saat pemain kedua mempunyai huruf-huruf yang tepat untuk melancarkan aksi tersebut, tetapi ada kemungkinan bahwa pemain lawan tidak mempunyai huruf-huruf yang dibutuhkan untuk melakukan aksi-aksi tersebut, bahkan pemain pertama bisa memanfaatkannya jika ia mendapatkan huruf-huruf yang tepat dan langkah tersebut belum ditutup atau diambil pemain lainnya. Namun, hal tersebut adalah sebuah asumsi yang belum tentu dapat dibuktikan kebenarannya dalam sebuah permainan Scrabble sehingga salah satu opsi yang baik adalah membentuk kata di awal yang tidak memunculkan setidaknya salah satu dari ketiga masalah tersebut.
+	Kemungkinan terburuk dari langkah seorang pemain Scrabble ketika ia tidak bisa menempatkan setidaknya 1 huruf dari deknya untuk menjalankan langkahnya. Ini bisa terjadi karena ia tidak mempunyai kata yang cukup atau memang tidak ada kata valid yang dapat dibentuk baik menggunakan komputer sekalipun. Dalam kondisi seperti ini, setiap pemain hanya mempunyai dua opsi, yaitu apakah ia akan melakukan sebuah pass dan membiarkan lawannya melakukan jalannya terlebih dahulu dengan harapan setelah lawannnya jalan, ia dapat menempatkan setidaknya satu huruf pada setidaknya satu kata hasil bentukan dari musuhnya, atau ia akan melakukan pertukaran huruf. Dalam proses penukaran terdapat beberapa hal yang bisa dijadikan sebagai acuan(mungkin bisa berbeda untuk setiap pemain tergantung dari selera mereka), yaitu adanya huruf-huruf berpoin tinggi seperti J,Q, dan Z, huruf-huruf vokal A,E, I, O, dan U, huruf-huruf konsonan yang sangat sering dipakai seperti L, S, T, dan R dengan beberapa syarat seperti apakah huruf-huruf berpoin tinggi mampu diletakkan dalam langkah-langkah selanjutnya atau dalam kata lain apakah terdapat kemungkinan-kemungkinan huruf yang jika ditempatkan bersama-sama dengan huruf berpoin tinggi tersebut dapat membentuk kata yang valid dan berapa peluangnya, apakah terdapat susunan huruf-huruf yang kuat yang mampu didapat dengan pertukaran yang dilakukan dengan peluangnya, apakah terdapat huruf-huruf yang jika dalam jumlah banyak akan membuat langkah-langkah selanjutnya seperti sulit(seperti 4 huruf I atau 4 huruf R dalam suatu dek), dan apakah kemungkinan huruf-huruf yang masih tersisa di dalam kantong huruf tersebut. Semua masalah ini dapat setidaknya diurai dengan backtracking, atau proses mencoret semua huruf yang sudah dimainkan dalam suatu permainan Scrabble. Dengan teknik ini, seorang pemain dapat memperkirakan huruf-huruf yang tersisa dalam kantong huruf.
+	Berikut ini adalah beberapa pertanyaan yang dapat dijadikan sebagai panduan penentuan suatu langkah saat di tengah permainan Scrabble:
+	1. Apakah saya mempunyai blank?
+	2. Apakah saya bisa membuat sebuah hook yang mungkin musuh tidak tahu?
+	3. Apakah saya perlu mengganti huruf-huruf yang ada pada dek saya?
+	4. Apakah saya bisa membuat petak Double Letter atau Triple Letter yang sesuai dengan huruf bernilai tinggi yang saya miliki?
+	5. Jika saya mempunyai suatu daftar kata-kata valid yang dapat dibentuk dalam suatu langkah, apa saja kelebihan dan kelemahan dari setiap kata yang mungkin tersebut?
+	6. Bagaimana kemampuan lawan saya? Apakah dia bisa mengetahui kata yang saya mainkan valid atau tidak?
+	7. Apakah dengan jalan saya ini dapat menyebabkan lawan saya bisa melakukan hook atau ekspansi atau paralel yang dapat merugikan saya?
+	8. Kira-kira apa kemungkinan langkah dari lawan saya selanjutnya?
+	9. Bagaimana cara saya menghadapi lawan yang berada di atas kita maupun di bawah kita?
+	10. Apa yang harus kita lakukan dalam posisi tertinggal dan unggul?
+	11. Apa langkah yang lebih penting, meletakkan bingo atau mencari petak-petak yang sesuai?
+	
+	1. Blank dan Kegunaannya
+	Blank merupakan huruf yang bisa digunakan sebagai pengganti yang lain, dengan beberapa penggunaaan umum adalah untuk mendapatkan nilai yang tinggi melalui bingo, ekstensi, paralel maupun hook atau memanfaatkan petak-petak khusus. Jumlah blank hanya ada 4 sehingga setiap kali digunakan rata-rata pemain Scrabble akan menggunakannya untuk memperoleh skor yang besar.
+	
+	2. Melihat Kemampuan Lawan
+	Bermain bersama lawan yang mempunyai kemampuan di atas kita membuat kita harus sebisa mungkin memainkan permainan yang ketat, jangan terlalu terbuka dengan meletakkan kata-kata yang dapat di-hook dan/atau diparalel dengan mudahnya oleh lawan. Kita perlu berhati-hati dalam pembuatan sebuah hook atau membuat suatu kata yang terlihat salah untuk di-challenge lawan atau sebuah kata yang terlihat benar tetapi sebenarnya tidak valid. Jika lawan berada kemampuannya di bawah, itu tidak menjadi masalah, tetapi bisa dijadikan sebagai taktik alternatif untuk mencetak margin yang lebih besar. Ini akan sangat berpengaruh dalam kompetisi nanti, karena salah satu komponen penilaiannya adalah margin dari orang-orang yang mempunyai jumlah kemenangan yang sama.
+	
+	3. Penggantian Huruf
+	Penggantian huruf sebenarnya mempunyai syarat dan pemikiran yang sama dengan penggantian huruf pada permainan awal.
+	
+	4. Mempertimbangkan Kemungkinan Lawan
+	Permainan Scrabble tidak hanya sekedar fokus pada dek dan semua kemungkinan huruf yang dapat dibentuk dari dek diri sendiri, tetapi perlu mempertimbangkan huruf-huruf yang sudah maupun belum dimainkan. Pembacaan langkah-langkah lawan sebelumnya dapat menyebabkan kita lebih mengerti apa yang ingin dia lakukan pada langkah selanjutnya. Misalkan seorang pemain membuang salah satu hurufnya pada papan dengan banyak ruang kosong yang terbuka untuk dimanfaatkan atau melakukan penggantian satu huruf dari deknya. Ini bisa mengundang kecurigaan dari lawannya, yaitu adanya kemungkinan dari pemain ini yang mempunyai bingo stem.
+	
+	5. Kondisi tertinggal dan unggul
+	Kondisi tertinggal memang tidak mudah untuk diputarbalikkan menjadi unggul, tetapi salah satu cara yang bisa dipertimbangkan adalah untuk membuka permainan. Cara ini memang riskan untuk menghadapi lawan-lawan yang secara kualitas berada di atas kita, tetapi cara membuka ini bisa memberikan kita(dan tentu saja lawan) pilihan untuk membentuk kata dari huruf-huruf yang sekarang dimiliki dalam dek. Semaikn banyak pilihan, semakin beragam nilai, penggunaan huruf dan kata-kata yang dapat dibentuk, dan mungkin saja dapat menipiskan ketertinggalan dengan lawan. Namun, ini bisa menjadi bahaya jika kita tidak mampu memanfaatkan keterbukaan susunan huruf pada papan Scrabble dan dimanfaatkan oleh lawan, bukan tidak mungkin hasilnya akan semakin jauh lagi. Pilihan yang juga bisa dipilih adalah bermain ketat dengan lawan yang kemampuannya di atas kita dan sangat terbuka untuk awan yang kemampuannya berada di bawah kita.
+	
+	Dalam permainan-permainan menuju akhir, semua cara di atas masih bisa dilakukan, tetapi dengan pertimbangan mengetahui semua huruf yang dipunyai lawan. Taktik-taktik dalam akhir-akhir permainan Scrabble adalah yang langsung menghabiskan semua hurufnya dan/atau mengunci tempat-tempat yang mungkin dipakai oleh huruf-huruf bernilai besar(jika dia tahu kalau kita mempunyainya). Penguncian huruf ini sangat ampuh dalam permainan dalam nilai-nilai yang ketat karena saat lawan tidak bisa meletakkan suatu huruf, kita mempunyai kemungkinan untuk memenangkan suatu pertandingan karena menurut aturan ketujuh dalam penilaian, semakin besar nilai huruf dari suatu lawan yang terkunci, pengurangan nilai pada dek lawan akan lebih besar dan penambahan nilai ke kita juga akan lebih besar. Kita bisa mengombinasikan hal ini dengan mengeluarkan langkah-langkah kecil seperti mengeluarkan satu atau dua huruf dan mendapatkan nilai setidaknya 10. Ini bertujuan untuk memaksimumkan nilai yang kita mungkin dapatkan karena kita berhasil mengunci huruf lawan yang bernilai besar. Taktik untuk cepat menghabiskan huruf menjadi kurang berguna karena perbedaan nilai untuk cepat menghabiskan huruf dalam dek kita dan memanfaatkan aturan ketujuh dalam penilaian menjadi kurang efektif karena nilai perubahan nilainya tidak terlalu berbeda, sedangkan dengan penambahan nilai dengan penggunaan huruf secara sedikit dei sedikit akan memperbesar jarak antara pemain dengan lawan.
+	
+	Sedikit dari penggambaran pohon keputusannya adalah sebagai berikut:
+	
+	V.   KESIMPULAN
+	Scrabble merupakan permainan yang penuh dengan taktik dan strategi. Taktikdan strategi dapat diambil dengan menggunakan pohon keputusan sehingga bisa menghasilkan langkah yang terbaik, dari awal permainan, pertengahan hingga akhir-akhir permainan. Semua taktik dan strategi bergantung pada kemampuan musuh, analisis kondisi huruf-huruf pada dek, dan analisisi huruf-huruf pada papan Scrabble. 
+	
+	REFERENSI
+	Munir, Rinaldi. Matematika Diskrit, Edisi Ketiga.2005.Bandung: Informatika Bandung.
+	Rosen, Kenneth H.Discrete Mathematics and Its Applications, seventh Edition.2012.McGraw-Hill.
+	Nugraha, Adrian Mulyana. “Pengunaan Pohon dan Permutasi dalam Pencarian Kata yang Valid dan Sub-Anagram Kata pada Aplikasi Scrabble Expert”dalam draft makalah final Matetamtika Diskrit tahun ajaran 2016/2017 pada http://informatika.stei.itb.ac.id/~rinaldi.munir/Matdis/2016-2017/Makalah2016.htm.
+	http://www.scrabblesite.com/scrabble/strategy/ diakses pada 1 Desember 2017 pukul 19.46 
+	https://www.merriam-webster.com/words-at-play/top-10-secrets-of-scrabble-masters diakses pada 1 Desember 2017 pukul 19.58
+	http://www.scrabble.org.au/strategy/strategy.htm diakses pada 3 Desember 2017 pukul 18.23
+	http://www.scrabblelists.com/lists/retina diakses pada tanggal 3 Desember 2017 pukul 21.10
+	
+	UCAPAN TERIMA KASIH
+	Terima kasih kepada semua pihak yang membantu penulis dalam penyusunan makalah ini:
+	1. Pertama-tama ucapan syukur kepada Tuhan Yang Maha Esa karena atas rahmat-Nya penulis dapat menyelesaikan makalah ini dengan baik.
+	2. Kedua terima kasih kepada Bapak Dr. Ir. Rinaldi Munir, M.T., Ibu Dra. Harlili S., M.Sc., dan Bapak Dr. Judhi Santoso, M.Sc. atas pengajaran yang telah mereka berikan dan menjadi sumber inspirasi penulis dalam pembuatan makalah ini.
+	3. Ketiga terima kasih kepada Sdr. Adrian Mulyana Nugraha yang makalahnya telah menginspirasi penulis dalam pembuatan makalah ini.
+	4. Keempat terima kasih kepada Sdr. Harnando Supriatna atas penjelasannya mengenai istilah-istilah dalam Scrabble dan memberikan saran-saran lainnya untuk memperkuat makna dari makalah ini.
+	5. Kelima terima kasih kepada teman-teman penulis yang tidak dapat disebutkan satu-per-satu yang menyemangati penulis sehingga makalah ini dapat selesai tepat pada waktunya.
+	
+	PERNYATAAN
+	Dengan ini saya menyatakan bahwa makalah yang saya tulis ini adalah tulisan saya sendiri, bukan saduran, atau terjemahan dari makalah orang lain, dan bukan plagiasi.
+	
+	Bandung, 3 Desember 2017   
+	
+	Kevin Andrian Liwinata
+	13516118
+
+  *
+    Copy lines
+
+  *
+    Copy permalink
+
+  *
+    View git blame
+
+    <https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/blame/9271801a724b9f2703c1530c8e58deb5dfd9f1ea/input2.txt>
+  *
+    Open new issue
+
+    <https://github.com/kevinandrianliu/Tugas-2-Ca-IRK/issues/new>
+
+Jump to Line
+Go
+
+  * © 2018 GitHub, Inc.
+  * Terms <https://github.com/site/terms>
+  * Privacy <https://github.com/site/privacy>
+  * Security <https://help.github.com/articles/github-security/>
+  * Status <https://status.github.com/>
+  * Help <https://help.github.com/>
+
+<https://github.com/>
+
+  * Contact GitHub <https://github.com/contact>
+  * API <https://developer.github.com/>
+  * Training <https://training.github.com/>
+  * Shop <https://shop.github.com/>
+  * Blog <https://blog.github.com/>
+  * About <https://github.com/about>
+
+You can’t perform that action at this time.
+You signed in with another tab or window. Reload to refresh your
+session. You signed out in another tab or window. Reload to refresh your
+session.
+
+Press h to open a hovercard with more details.
