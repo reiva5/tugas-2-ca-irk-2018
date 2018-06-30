@@ -4,7 +4,7 @@ import os
 
 # David Timothy Panjaitan/13516075
 
-class BitWriter(object):
+class BitWriter:
     def __init__(self, f=None):
         self.accumulator = 0
         self.bcount = 0
@@ -15,15 +15,7 @@ class BitWriter(object):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        #self.flush()
         pass
-
-    def __del__(self):
-        try:
-            #self.flush()
-            pass
-        except ValueError:   # I/O operation on closed file.
-            pass
 
     def _writebit(self, bit):
         if self.bcount == 8:
@@ -46,8 +38,9 @@ class BitWriter(object):
         self.bcount = 0
 
 
-class BitReader(object):
+class BitReader:
     def __init__(self, f):
+        #f bisa berupa file atau bytearray
         self.input = f
         self.accumulator = 0
         self.bcount = 0
@@ -123,7 +116,6 @@ class HuffmanAlgorithm:
         self.codes = {}
         self.tree = HuffmanTree()
 
-
     def buildTree(self, frequency):
         """ build a huffman tree based on frequency """
         freq = [(x[1], DataWrapper(x[0])) for x in frequency.items()]
@@ -177,7 +169,6 @@ class HuffmanAlgorithm:
 
     def _decode(self, reader):    
         isTree = reader.readbits(1)
-        #print('istree: ',isTree) #debug
         if isTree == 0:
             output = HuffmanTree()
             output.left = self._decode(reader)
@@ -205,6 +196,7 @@ class Compressed:
         return table
 
     def compress(self):
+        """the one method to call to compress the file in the object"""
         freq = self._sortbytes()
         algo = HuffmanAlgorithm()
         algo.buildTree(freq)
@@ -239,11 +231,6 @@ class Compressed:
 def doCompress(namaFile):
     comp = Compressed(namaFile)
     comp.compress()
-    #namatemp = namaFile.split('.')
-    #namatemp[-1] = 'irk'
-    #namabaru = '.'.join(namatemp)
-    #with open(namabaru, 'wb') as newfile:
-    #    newfile.write(comp.toBytes())
     return comp
 
 def decompress(namaFile):
@@ -269,6 +256,5 @@ def decompress(namaFile):
                     while code not in codes:
                         code += str(reader.readbits(1))
                     decoded.write(codes[code])
-                #print(codes)
                 
          
