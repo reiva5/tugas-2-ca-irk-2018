@@ -24,15 +24,21 @@ public class main {
 				}
 			}
 			fileName += ".irk";
-			File logFile = new File(fileName);
-			System.err.println(fileName);
-			PrintWriter log_file_writer = new PrintWriter(logFile);
-			log_file_writer.println(tmp.toBytes().toString());
+			
+			try {
+				File logFile = new File(fileName);
+	            FileWriter log_file_writer = new FileWriter(logFile);
+	            log_file_writer.write(tmp.toBytes());
+	            log_file_writer.flush();
+	            log_file_writer.close();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 			System.out.println("Ukuran hasil kompresi adalah: " + calc.sizeOf(tmp)/8 + " byte(s)");
 			System.out.println("Eksekusi waktu hasil kompresi adalah: " + String.format("%.3f",(double) (end - begin)/1000000000.0) + " second(s)");
 		} else {
 			long begin = System.nanoTime();
-			tmp.decompress(args[1]);
+			tmp.decompress(args[0]);
 			long end = System.nanoTime();
 			System.out.println("Eksekusi waktu hasil de-kompresi adalah: " + String.format("%.3f",(double) (end - begin)/1000000000.0) + " second(s)");
 		}
