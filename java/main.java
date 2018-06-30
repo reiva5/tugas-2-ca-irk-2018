@@ -28,11 +28,12 @@ public class main {
 			System.err.println(fileName);
 			PrintWriter log_file_writer = new PrintWriter(logFile);
 			log_file_writer.println(tmp.toBytes().toString());
+			log_file_writer.close();
 			System.out.println("Ukuran hasil kompresi adalah: " + calc.sizeOf(tmp)/8 + " byte(s)");
 			System.out.println("Eksekusi waktu hasil kompresi adalah: " + String.format("%.3f",(double) (end - begin)/1000000000.0) + " second(s)");
 		} else {
 			long begin = System.nanoTime();
-			tmp.decompress(args[1]);
+			tmp.decompress(args[0]);
 			long end = System.nanoTime();
 			System.out.println("Eksekusi waktu hasil de-kompresi adalah: " + String.format("%.3f",(double) (end - begin)/1000000000.0) + " second(s)");
 		}
