@@ -77,7 +77,9 @@ public class Compressed {
 		//Flush out output so everything is written
 		wb.flush();
 		in2.close();
-		out.close();		
+		out.close();
+		
+		return null;
 	}
 }
 
