@@ -7,7 +7,7 @@
 ***
 Algoritma yang digunakan untuk memampatkan data adalah algoritma LZW. Sebuah lossless data compression algorithm yang dibuat oleh Abraham Lempel, Jacob Ziv, dan Terry Welch.
 
-Algoritma ini cukup umum digunakan, dan mudah diimplementasikan. Karena algoritma ini mencari pengulangan pattern, maka semakin banyak pattern yang berulang, semakin banyak space yang bisa dikosongkan.
+Algoritma ini cukup umum digunakan, dan mudah diimplementasikan. Karena algoritma ini mencari pengulangan pattern, space yang bisa dihemat berbanding lurus dengan banyaknya pattern yang berulang. 
 
 Compression algorithm:
 	
