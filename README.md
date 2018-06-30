@@ -1,10 +1,10 @@
 PEMBUAT
-====================================================================================================
+---------------------------------------------------------------------------------------------------
 Nama	: Ferdiant Joshua Muis
 NIM		: 13516047
 
 Penjelasan
-====================================================================================================
+---------------------------------------------------------------------------------------------------
 Teknik Run-Length Encoding adalah salah satu teknik kompresi data lossless yang sederhana dan sering digunakan.
 
 Sebelum kompresi
@@ -21,10 +21,10 @@ Kompresi dengan metode RLE sederhana dan mudah untuk diimplementasikan, walaupun
 
 
 Kompleksitas
-====================================================================================================
+---------------------------------------------------------------------------------------------------
 Kompleksitas algoritma ini sangat sederhana yaitu O(n), dengan n adalah jumlah byte dalam file yang akan dikompresi. Karena algoritma hanya beriterasi pada setiap byte yang terdapat pada file.
 
 
 Alasan Pemilihan Algoritma
-====================================================================================================
+---------------------------------------------------------------------------------------------------
 Saya memilih algoritma RLE karena metode ini sederhana baik dalam algoritma maupun pengimplementasiannya. Selain itu algoritma ini cukup efektif untuk mengompresi file-file berukuran kecil (<256 MB) yang cocok untuk pengerjaan tugas ini sebagai bentuk eksplorasi ilmu kompresi.
