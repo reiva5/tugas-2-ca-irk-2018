@@ -11,7 +11,6 @@ class Compressed:
         print("done")
 
     def toBytes(self):
-        print(self.data)
         return self.data
 
     def set_filename(self, filename):
