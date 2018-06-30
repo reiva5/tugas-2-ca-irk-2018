@@ -33,7 +33,7 @@ public class main {
 			System.out.println("Eksekusi waktu hasil kompresi adalah: " + String.format("%.3f",(double) (end - begin)/1000000000.0) + " second(s)");
 		} else {
 			long begin = System.nanoTime();
-			tmp.decompress(args[1]);
+			tmp.decompress(args[0]);
 			long end = System.nanoTime();
 			System.out.println("Eksekusi waktu hasil de-kompresi adalah: " + String.format("%.3f",(double) (end - begin)/1000000000.0) + " second(s)");
 		}
