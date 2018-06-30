@@ -12,10 +12,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Compressed {
-	private String asu = "Asu";
-	
+	private String nameFile = "Asu";
 	public Compressed(){
-		asu = "susu";
+		nameFile = "susu";
+	}
+	
+	public String toBytes(){
+        
+        String bForm = "";
+
+        File file = new File(nameFile);
+
+        byte[] b = new byte[(int) file.length()];
+        FileInputStream fileInputStream = new FileInputStream(file);
+        fileInputStream.read(b);
+        for (int i = 0; i < b.length; i++) {
+            bForm += (char)b[i];
+        }
+		return bForm;
 	}
 
 	public Compressed doCompress(String nameFile){
