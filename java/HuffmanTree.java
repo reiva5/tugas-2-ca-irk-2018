@@ -1,6 +1,5 @@
 /**
   * Huffman Tree Class
-  * Written By: Mitchell Pomery
   * Used to create mappings for use in huffman coding
  **/
 
