@@ -30,7 +30,8 @@ _Method_ **_deCompress_** memiliki kompleksitas yang sama dengan _Method_ **_doC
 
 ## Tambahan
 Algoritma **_RLE_** yang saya buat tidak sepenuhnya seperti penjelasan di atas. Terdapat beberapa hal yang dilakukan yaitu : <br>
-1. Jika jumlah karakter yang sedang diperiksa adalah **< 4**, maka ditulis apa adanya. <br>
+### \#1
+Jika jumlah karakter yang sedang diperiksa adalah **< 4**, maka ditulis apa adanya. <br>
 contoh : <br>
   Terdapat string sebagai berikut 
 ```
@@ -42,7 +43,8 @@ AABCCC
 ```
   bukan **A2B1C3**
 
-2. Jika jumlah karakter yang sedang diperiksa adalah **>= 4**, maka ditulis menggunakan konsep **_RLE_**. Algoritma yang saya implementasi tidak sepenuhnya mirip dengan konsep, tetapi terdapat modifikasi sehingga dapat dibedakan antara angka penanda kompresi dengan angka byte sebenarnya. Penanda tersebut diikuti string "\`\[". Dipilih string tersebut karena kemunculan kedua string tersebut secara berurutan tidak saya temukan selama mengerjakan tugas ini. <br>
+### \#2
+Jika jumlah karakter yang sedang diperiksa adalah **>= 4**, maka ditulis menggunakan konsep **_RLE_**. Algoritma yang saya implementasi tidak sepenuhnya mirip dengan konsep, tetapi terdapat modifikasi sehingga dapat dibedakan antara angka penanda kompresi dengan angka byte sebenarnya. Penanda tersebut diikuti string "\`\[". Dipilih string tersebut karena kemunculan kedua string tersebut secara berurutan tidak saya temukan selama mengerjakan tugas ini. <br>
 contoh : <br>
   Terdapat string sebagai berikut
 ```
@@ -53,5 +55,6 @@ AABBBBBBB45LLLL1
 AAB`[745L`[41
 ```
 
-3. Terdapat spesifikasi yaitu program dapat mengembalikan file yang telah dikompresi menjadi file semula. Maka dari itu, ekstensi dari file semula juga disimpan di dalam file hasil kompresi yang terletak di awal file. Format penulisan di file hasil kompresi adalah **\<panjang karakter ekstensi\>\<ekstensi\>\<byte file\>**. <br>
+### \#3
+Terdapat spesifikasi yaitu program dapat mengembalikan file yang telah dikompresi menjadi file semula. Maka dari itu, ekstensi dari file semula juga disimpan di dalam file hasil kompresi yang terletak di awal file. Format penulisan di file hasil kompresi adalah **\<panjang karakter ekstensi\>\<ekstensi\>\<byte file\>**. <br>
   Contoh : Misalkan terdapat file dengan nama **"ini_file.haha"**. Maka, hasil penyimpanan di file kompresi adalah **"4haha\<byte file\>"**.
