@@ -9,7 +9,7 @@ public class main {
 	public static void main(String[] args) throws Exception {
 		calc = new ObjectSizeCalculator();
 		String query = args[1];
-		tmp = new Compressed();
+		tmp = new Compressed(args[0]);
 		if (query.equals("1")){
 			long begin = System.nanoTime();
 			tmp = tmp.doCompress(args[0]);

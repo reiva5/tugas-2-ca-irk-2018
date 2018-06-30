@@ -12,18 +12,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Compressed {
-	private String nameFile = "Asu";
-	public Compressed(){
-		nameFile = "susu";
+	private byte[] b;
+	private String nameFile;
+
+	public Compressed(String nameFile){
+		this.nameFile = nameFile;
+		b = new byte[10240];	
 	}
-	
+
 	public String toBytes(){
         
         String bForm = "";
 
-        File file = new File(nameFile);
+        File file = new File(this.nameFile);
 
-        byte[] b = new byte[(int) file.length()];
         FileInputStream fileInputStream = new FileInputStream(file);
         fileInputStream.read(b);
         for (int i = 0; i < b.length; i++) {
