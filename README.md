@@ -26,4 +26,4 @@ A5B2C7D2
 _Method_ **_doCompress_** memiliki kompleksitas **O(n)** dimana **n** adalah panjang data. Hal ini disebabkan karena data string _bytes_ akan dicek per karakter secara berurutan hingga karakter terakhir.
 
 ### deCompress
-_Method_ **_deCompress_** memiliki kompleksitas yang sama dengan _Method_ **_deCompress_** yaitu **O(n)** dimana **n** adalah panjang data. Hal ini disebabkan karena data string _bytes_ akan dicek per karakter secara berurutan hingga karakter terakhir.
+_Method_ **_deCompress_** memiliki kompleksitas yang sama dengan _Method_ **_doCompress_** yaitu **O(n)** dimana **n** adalah panjang data. Hal ini disebabkan karena data string _bytes_ akan dicek per karakter secara berurutan hingga karakter terakhir.
