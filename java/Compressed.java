@@ -42,7 +42,7 @@ public class Compressed {
 	}
 
 	public Compressed doCompress(String nameFile){
-		File f1 = new File(nameFile);
+	
 		Compressed compressed = new Compressed(nameFile);
 
 		try{
@@ -50,8 +50,6 @@ public class Compressed {
 			FileInputStream fis2 = new FileInputStream(nameFile);
 			FileOutputStream fos = new FileOutputStream(nameFile);
 			compressed.compressHuffman(fis1, fis2, fos);
-		}catch(FileNotFoundException e){
-			System.out.println(e.getMessage());
 		}catch(IOException e){
 			System.out.println(e.getMessage());
 		}
@@ -60,7 +58,6 @@ public class Compressed {
 	}
 
 	public void decompress(String nameFile){
-		File f1 = new File(nameFile);
 
 		try{
 			FileInputStream fis = new FileInputStream(nameFile);
