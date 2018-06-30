@@ -6,6 +6,8 @@ import java.io.OutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.PriorityQueue;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,36 +27,58 @@ public class Compressed {
 
         File file = new File(this.nameFile);
 
-        FileInputStream fileInputStream = new FileInputStream(file);
-        fileInputStream.read(b);
-        for (int i = 0; i < b.length; i++) {
-            bForm += (char)b[i];
-        }
+		try{
+        	FileInputStream fileInputStream = new FileInputStream(file);
+        	fileInputStream.read(b);
+        	for (int i = 0; i < b.length; i++) {
+            	bForm += (char)b[i];
+			}
+		}catch(FileNotFoundException e){
+			System.out.println(e.getMessage());
+		}catch(IOException e){
+			System.out.println(e.getMessage());
+		}
 		return bForm;
 	}
 
 	public Compressed doCompress(String nameFile){
 		File f1 = new File(nameFile);
-		FileInputStream fis1 = new FileInputStream(nameFile);
-		FileInputStream fis2 = new FileInputStream(nameFile);
-		FileOutputStream fos = new FileOutputStream(nameFile);
 		Compressed compressed = new Compressed(nameFile);
-		compressed.compressHuffman(fis1, fis2, fos);
 
+		try{
+			FileInputStream fis1 = new FileInputStream(nameFile);
+			FileInputStream fis2 = new FileInputStream(nameFile);
+			FileOutputStream fos = new FileOutputStream(nameFile);
+			compressed.compressHuffman(fis1, fis2, fos);
+		}catch(FileNotFoundException e){
+			System.out.println(e.getMessage());
+		}catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+		
 		return compressed;
 	}
+
 	public void decompress(String nameFile){
 		File f1 = new File(nameFile);
-		FileInputStream fis = new FileInputStream(nameFile);
-		FileOutputStream fos = new FileOutputStream(nameFile);
-		Compressed compressed = new Compressed(nameFile);
-		compressed.decompressHuffman(fis, fos);
 
-		fis.close();
-		fos.close();
+		try{
+			FileInputStream fis = new FileInputStream(nameFile);
+			FileOutputStream fos = new FileOutputStream(nameFile);
+			Compressed compressed = new Compressed(nameFile);
+			compressed.decompressHuffman(fis, fos);
+
+			fis.close();
+			fos.close();
+		}catch(FileNotFoundException e){
+			System.out.println(e.getMessage());
+		}catch(IOException e){
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public String compressHuffman(InputStream in1, InputStream in2, OutputStream out){
+		try{
 		WriteBuffer wb = new WriteBuffer(out, true);
 		byte[] buffer = new byte[10240];
 			
@@ -111,11 +135,15 @@ public class Compressed {
 		wb.flush();
 		in2.close();
 		out.close();
-		
+		}catch(IOException e){
+			System.out.println(e.getMessage());
+		}
+
 		return null;
 	}
 
 	public String decompressHuffman(FileInputStream in, FileOutputStream out){
+		try {
 		WriteBuffer wb = new WriteBuffer(out, false);
 		byte[] buffer = new byte[12288];
 		boolean[] bufferbool = new boolean[8];
@@ -238,6 +266,9 @@ public class Compressed {
 		wb.flush();
 		in.close();
 		out.close();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
 
 		return null;
 	}
